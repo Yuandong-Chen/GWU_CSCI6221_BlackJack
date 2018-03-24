@@ -3,10 +3,11 @@
 ## BlackJack For CSCI 6221
 
 ## Installation
-directly run in terminal:
-mix deps.get
-mix compile
-iex -S mix or mix release.init; mix release
+```directly run in terminal:
+$ mix deps.get
+$ mix compile
+$ iex -S mix or mix release.init; mix release
+```
 
 If [available in Hex](https://hex.pm/docs/publish), the package can be installed
 by adding `bj` to your list of dependencies in `mix.exs`:
