@@ -14,8 +14,9 @@ $ iex -S mix
 or you can release the project and run directly as daemon or blackground job
 $ mix release.init
 $ mix release
-Enjoy your game at [http://localhost:8080/](http://localhost:8080/).
+Enjoy your game at:
 ```
+[http://localhost:8080/](http://localhost:8080/)
 
 If [available in Hex](https://hex.pm/docs/publish), the package can be installed
 by adding `bj` to your list of dependencies in `mix.exs`:
