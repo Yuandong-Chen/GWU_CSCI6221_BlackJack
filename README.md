@@ -1,6 +1,6 @@
 # Bj
 
-##BlackJack For CSCI 6221
+## BlackJack For CSCI 6221
 
 ## Installation
 directly run in terminal:
