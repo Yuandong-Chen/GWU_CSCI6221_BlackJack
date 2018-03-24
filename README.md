@@ -10,7 +10,10 @@ Elixir 1.8+
 ```directly run in terminal:
 $ mix deps.get
 $ mix compile
-$ iex -S mix or mix release.init; mix release
+$ iex -S mix 
+or you can release the project and run directly as daemon or blackground job
+$ mix release.init
+$ mix release
 ```
 
 If [available in Hex](https://hex.pm/docs/publish), the package can be installed
