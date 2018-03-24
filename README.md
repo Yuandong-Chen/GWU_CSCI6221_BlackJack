@@ -4,7 +4,7 @@
 
 ## Requirement Environment
 
-elixir 1.8+
+Elixir 1.8+
 
 ## Installation
 ```directly run in terminal:
