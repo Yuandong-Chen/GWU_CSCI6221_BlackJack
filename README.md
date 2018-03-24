@@ -2,6 +2,10 @@
 
 ## BlackJack For CSCI 6221
 
+## Requirement Environment
+
+elixir 1.8+
+
 ## Installation
 ```directly run in terminal:
 $ mix deps.get
