@@ -1,0 +1,47 @@
+digraph asde91 {
+    ranksep=.75; size = "7.5,7.5";
+    {
+        node [shape=plaintext, fontsize=16];
+        /* the time-line graph */
+        step0 -> step1 -> step2 -> step3 -> step4;
+        /* ancestor programs */
+        "Browser 1"; "Browser 2"; "Browser 3";"Cowboy";
+    }
+
+    node [shape=box];
+    subgraph cluster0 {
+      node [style=filled,color=white];
+      style=filled;
+      color=lightgrey;
+      { rank = same; step0; "Browser 1"[fillcolor=white, style="rounded, filled",shape=diamond]; "Browser 2"[fillcolor=white, style="rounded, filled",shape=diamond]; "Browser 3"[fillcolor=white, style="rounded, filled",shape=diamond]; }
+      { rank = same; step1; "Cowboy" [fillcolor=white, style="rounded, filled",shape=diamond]; }
+      label = "Web Server";
+    }
+
+    subgraph cluster1 {
+      node [style=filled,color=white];
+      style=filled;
+      color=lightgrey;
+      { rank = same; step2; "WebSocket Handler 1"; "WebSocket Handler 2"; "WebSocket Handler 3"; }
+      { rank = same; step3; "Dispatcher"; }
+      { rank = same; step4; "Room 1"; "Room 2";}
+    }
+
+    "Browser 1" -> Cowboy [style="dashed",label="Http request/Websocket request"]
+    "Browser 2" -> Cowboy [style="dashed"]
+    "Browser 3" -> Cowboy [style="dashed"]
+    Cowboy -> "WebSocket Handler 1" [style="dashed",label="Spawn"]
+    Cowboy -> "WebSocket Handler 2" [style="dashed"]
+    Cowboy -> "WebSocket Handler 3" [style="dashed"]
+    "WebSocket Handler 1" -> "Browser 1" [dir=both, label="Websocket connection",color=red]
+    "WebSocket Handler 2" -> "Browser 2" [dir=both,color=red]
+    "WebSocket Handler 3" -> "Browser 3" [dir=both,color=blue]
+    "WebSocket Handler 1" -> "Dispatcher" [label="Erlang Msg",color=red]
+    "WebSocket Handler 2" -> "Dispatcher" [color=red]
+    "WebSocket Handler 3" -> "Dispatcher" [color=blue]
+    "Dispatcher" -> "Room 1" [label="Erlang Msg/Spawn",color=red]
+    "Dispatcher" -> "Room 2" [color=blue]
+    "Room 1" -> "WebSocket Handler 1" [label="Erlang Msg",color=red]
+    "Room 1" -> "WebSocket Handler 2" [color=red]
+    "Room 2" -> "WebSocket Handler 3" [color=blue]
+}
